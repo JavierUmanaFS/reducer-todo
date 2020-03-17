@@ -4,6 +4,33 @@
   margin: 0;
 }
 
+.todoTitle{
+  text-align: center;
+}
+
 .completed{
   text-decoration: line-through;
+}
+
+.todos{
+  width: 40%;
+  height: 5vh;
+  margin: 2% auto;
+  background-color: #999999;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.addTodo{
+  text-align: center;
+}
+
+.clearTodo{
+  width: 40%;
+  height: 5vh;
+  margin: 1% auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

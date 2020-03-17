@@ -18,9 +18,9 @@ export const todoReducer = (state, action) => {
       return [
         ...state,
         {
+          task: action.payload,
           id: new Date(),
-          todoTitle: action.payload,
-          todoCompleted: false
+          completed: false
         }
       ];
     case 'TOGGLE_COMPLETED':
@@ -35,6 +35,10 @@ export const todoReducer = (state, action) => {
           return todo;
         }
       }))
+    case 'CLEAR_COMPLETED':
+      return (state.filter(todo => {
+        return todo.completed === false;
+      }));
     default:
       return state;
   }

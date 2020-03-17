@@ -17,25 +17,37 @@ const TodoList = () => {
     dispatch({ type: 'ADD_TODO', payload: newTodoText });
   }
 
+  const clearTodo = e => {
+    e.preventDefault();
+    dispatch({ type: 'CLEAR_COMPLETED', payload: e.completed })
+  }
+
   console.log(state)
   return (
     <div>
       {state.map(todo => {
         return (
-          <div key={todo.id}>
-            <p className={todo.completed ? 'completed' : ''}>{todo.task}</p>
+          <div className='todos' key={todo.id}>
+            <p className={todo.completed ? 'completed' : ''}>
+              {todo.task}
+            </p>
             <input
               type="checkbox"
               onClick={() =>
                 dispatch({ type: 'TOGGLE_COMPLETED', payload: todo.id })}
-            /></div>
-
+            />
+          </div>
         )
       })}
-      <form>
+      <form className='addTodo'>
         <input name='newTodo' value={newTodoText} onChange={handleChanges} />
         <button onClick={addTodo}>Add New Todo</button>
       </form>
+      <div className='clearTodo'>
+        <button onClick={clearTodo}>Clear Completed</button>
+      </div>
+
+
     </div>
   )
 }
